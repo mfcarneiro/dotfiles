@@ -1,0 +1,41 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+
+# theme
+ZSH_THEME="agnoster"
+
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/mfcarneiro/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# Theme sources
+source /usr/share/oh-my-zsh/themes/agnoster.zsh-theme
+
+# stamp shown in the history command output.
+HIST_STAMPS="dd/mm/yyyy"
+
+# auto correction
+ENABLE_CORRECTION="true"
+
+# plugins
+plugins=(
+  git
+  bundler
+  colored-man-pages
+  archlinux
+  osx
+)
+
+# ZSH cache
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
