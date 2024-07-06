@@ -73,15 +73,29 @@ HIST_STAMPS="dd/mm/yyyy"
 plugins=(git
          adb
          asdf
+         alias-finder
+         ag
+         archlinux
+         cp
+         copybuffer
+         copypath
+         wd
+         fzf
+         dash
          npm
          bun
          fzf
+         tmux
+         kitty
+         systemd
          gpg-agent
+         golang
          gitignore
          gradle
          pre-commit
          safe-paste
          ssh-agent
+         taskwarrior
          zsh-autosuggestions 
          fast-syntax-highlighting 
          zsh-autocomplete
@@ -115,11 +129,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="$HOME/.local/bin/:$PATH"
-
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 
@@ -130,6 +139,21 @@ export ANDROID_AVD_HOME=~/.android/avd/
 export ANDROID_EMULATOR_HOME=~/Android/Sdk/emulator/
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 
+# Cromite
+export CHROME_EXECUTABLE=/usr/bin/cromite
+
+# ZapStream background music
+alias mpvzap="mpv --no-video https://zap.stream/naddr1qqjrjdpkxvmk2ve4956njv3e956rgvny95urxdn994snqc3nvejngd3jvsmrvq3qeaz6dwsnvwkha5sn5puwwyxjgy26uusundrm684lg3vw4ma5c2jsxpqqqpmxwex2dgp"
+
+# Ytfzf
+alias ytv="ytfzf -t -s -l --async-thumbnails"
+alias yta="ytfzf -t -s -m -l --async-thumbnails"
+
+# Alias finder
+zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
 
 # Starship
 eval "$(starship init zsh)"
