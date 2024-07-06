@@ -2,3 +2,4 @@ asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf plugin add dart https://github.com/patoconnor43/asdf-dart.git
 asdf plugin-add flutter
 asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
+asdf plugin add bun
