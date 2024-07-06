@@ -202,9 +202,10 @@ bindsym F1 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
 #bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 #bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 # Backlight setting using dunst osc
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 && notify-send "Brightness - $(light -G | cut -d '.' -f 1)%"
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 && notify-send "Brightness - $(light -G | cut -d '.' -f 1)%"
-
+# bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 && notify-send "Brightness - $(light -G | cut -d '.' -f 1)%"
+# bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 && notify-send "Brightness - $(light -G | cut -d '.' -f 1)%"
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
 
 # change focus
 bindsym $mod+j focus left
@@ -289,13 +290,9 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec --no-startup-id /usr/bin/firefox
-bindsym $mod+n exec --no-startup-id /usr/bin/thunar
+bindsym $mod+w exec --no-startup-id /usr/bin/cromite
+bindsym $mod+n exec --no-startup-id kitty -T "File Manager" ranger
 bindsym Print exec --no-startup-id scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
-
-# screen brightness
-# bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
-# bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
@@ -329,11 +326,11 @@ set $ws10 "10"
 #workspace $ws5 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
-assign [class="Xfce4-terminal"] $ws1
-assign [class="(?i)firefox"] $ws2
+# assign [class="Xfce4-terminal"] $ws1
+assign [class="(?i)Cromite"] $ws2
 assign [class="Thunar"] $ws3
-assign [class="thunderbird"] $ws4
-assign [class="TelegramDesktop"] $ws5
+# assign [class="thunderbird"] $ws4
+# assign [class="TelegramDesktop"] $ws5
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=Xfce4-terminal] focus
@@ -375,6 +372,9 @@ exec_always --no-startup-id picom --config  ~/.config/picom/picom.conf
 # autostart applications/services on login: #
 #############################################
 
+# Redshift
+exec --no-startup-id redshift-gtk
+
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
@@ -400,11 +400,11 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id ~/.screenlayout/dual-screen.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill ~/Downloads/btc_eletronics.webp
+exec --no-startup-id sleep 2 && feh --bg-fill ~/Pictures/btc_eletronics.webp
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -452,7 +452,7 @@ exec --no-startup-id /usr/bin/dunst
 #exec --no-startup-id blueberry-tray
 
 # networkmanager-applet
-#exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 
 # clipman-applet
 #exec --no-startup-id xfce4-clipman
@@ -584,25 +584,22 @@ strip_workspace_numbers yes
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
-		-config ~/.config/rofi/rofidmenu.rasi
+    -config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F9 exec --no-startup-id rofi -modi drun -show drun \
 #		-config ~/.config/rofi/rofidmenu.rasi
 
 ## rofi bindings for window menu ($mod+t /F10 optional disabled)
 
-bindsym $mod+t exec --no-startup-id rofi -show window \
-		-config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+t exec --no-startup-id rofi -show run \
+		 -config ~/.config/rofi/rofidmenu.rasi
 
-#bindsym F10 exec --no-startup-id rofi -show window \
-#		-config ~/.config/rofi/rofidmenu.rasi
+# bindsym F10 exec --no-startup-id rofi -show window \
+#     -config ~/.config/rofi/rofidmenu.rasi
 
 ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
 
 #exec --no-startup-id greenclip daemon>/dev/null
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
-
-exec --no-startup-id redshift
-
-
+#
