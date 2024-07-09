@@ -142,6 +142,11 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/plat
 # Cromite
 export CHROME_EXECUTABLE=/usr/bin/cromite
 
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
+
 # ZapStream background music
 alias mpvzap="mpv --no-video https://zap.stream/naddr1qqjrjdpkxvmk2ve4956njv3e956rgvny95urxdn994snqc3nvejngd3jvsmrvq3qeaz6dwsnvwkha5sn5puwwyxjgy26uusundrm684lg3vw4ma5c2jsxpqqqpmxwex2dgp"
 
@@ -155,5 +160,21 @@ zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
 zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
 zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
 
-# Starship
+alias npm=bun
+alias ion=ionic
+
+# Ionic completion
+if type compdef &>/dev/null; then
+  __ionic() {
+    compadd -- $(ionic completion -- "${words[@]}" 2>/dev/null)
+  }
+
+  compdef __ionic ionic
+fi
+
 eval "$(starship init zsh)"
+# Starship
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
