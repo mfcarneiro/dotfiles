@@ -37,7 +37,7 @@ nmap <Leader>l :BLines<CR>
 nmap <Leader>h :Helptags!<CR>
 
 " " Mappings: lazygit
-nnoremap <silent> <leader>gg :LazyGit<CR>
+nnoremap <silent> <leader>gg :terminal lazygit<CR>
 
 " " Search project with ag
 " " Mappings: agriculture
@@ -56,3 +56,6 @@ autocmd FileType go nmap <leader>r  <Plug>
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
+
+" " Mappings: dispatch
+nnoremap <silent> <leader>xx :Dispatch<CR>

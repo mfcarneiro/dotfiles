@@ -25,7 +25,8 @@ Plug 'chriskempson/base16-vim'
 
 Plug 'chiel92/vim-autoformat'
 
-Plug 'junegunn/seoul256.vim'
+"Plug 'junegunn/seoul256.vim'
+Plug 'sainnhe/edge'
 
 Plug 'tpope/vim-commentary'
 
@@ -34,8 +35,6 @@ Plug 'theprimeagen/harpoon'
 Plug 'Olical/vim-enmasse'
 
 Plug 'svermeulen/vim-subversive'
-
-Plug 'shougo/neocomplete.vim'
 
 Plug 'itchyny/lightline.vim'
 
@@ -51,8 +50,6 @@ Plug 'neoclide/coc-highlight'
 
 Plug 'ryanoasis/vim-devicons'
 
-Plug 'rip-rip/clang_complete'
-
 Plug 'puremourning/vimspector'
 
 Plug 'raimondi/delimitmate'
@@ -60,6 +57,10 @@ Plug 'raimondi/delimitmate'
 Plug 'go-delve/delve'
 
 Plug 'tpope/vim-dispatch'
+
+Plug 'vim-scripts/a.vim'
+
+Plug 'luochen1990/rainbow'
 
 " Config: sourcery
 let g:sourcery#disable_sourcing_on_boot = 0
@@ -72,7 +73,7 @@ let g:agriculture#ag_options = '--case-sensitive'
 au BufWrite * :Autoformat
 
 " Config: seoul256
-let g:seoul256_background = 234
+" let g:seoul256_background = 234
 
 " Config: go
 let g:go_def_mode='gopls'
@@ -82,13 +83,18 @@ let g:go_highlight_fields = 1
 let g:go_highlight_function_calls = 1
 let g:go_doc_popup = 'vsplit'
 
+" Config: edge
+let g:edge_style = 'neon'
+let g:edge_better_performance = 1
+let g:lightline = {'colorscheme' : 'edge'}
+
 " Config: lightline
 let g:lightline = {
-			\ 'colorscheme': 'wombat',
+			\ 'colorscheme': 'edge',
 			\ 'active': {
 			\   'left': [ [ 'mode', 'paste' ],
 			\             [ 'gitbranch', 'readonly', 'filename', 'modified' ]
-			\ ]
+			\    ]
 			\ },
 			\ }
 
