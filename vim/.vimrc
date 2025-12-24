@@ -1,9 +1,8 @@
 filetype plugin on
 syntax on
 
-colorscheme kali-dark
-
 set termguicolors
+
 set encoding=utf-8
 set number
 set relativenumber
@@ -25,3 +24,4 @@ call plug#end()
 
 call sourcery#init()
 
+colo gruvbox8

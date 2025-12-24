@@ -32,17 +32,17 @@ let g:colors_name = "kali-dark"
 
 " UI
 hi Normal        guifg=#eaeaea guibg=#252422
-hi Cursor        guifg=#000000 guibg=#eaeaea
-hi CursorLine    guibg=#0f1111
+hi Cursor        guifg=#000000 guibg=#252422
+hi CursorLine    guibg=#0f1111 guibg=#252422
 hi CursorColumn  guibg=#0f1111 guibg=#252422
 hi LineNr        guifg=#666666 guibg=#252422
 hi CursorLineNr  guifg=#7aa6da guibg=#252422
-hi Visual        guibg=#1a1a1a
-hi StatusLine    guifg=#eaeaea guibg=#0f1111
-hi StatusLineNC  guifg=#666666 guibg=#0f1111
-hi VertSplit     guifg=#0f1111 guibg=#0f1111
-hi Pmenu         guifg=#eaeaea guibg=#0f1111
-hi PmenuSel      guifg=#000000 guibg=#7aa6da
+hi Visual        guibg=#1a1a1a guibg=#252422
+hi StatusLine    guifg=#eaeaea guibg=#252422
+hi StatusLineNC  guifg=#666666 guibg=#252422
+hi VertSplit     guifg=#0f1111 guibg=#252422
+hi Pmenu         guifg=#eaeaea guibg=#252422
+hi PmenuSel      guifg=#000000 guibg=#252422
 
 " Syntax
 hi Comment       guifg=#666666 gui=italic
@@ -55,9 +55,16 @@ hi Keyword       guifg=#7aa6da
 hi Type          guifg=#70c0ba
 hi Statement     guifg=#7aa6da
 hi PreProc       guifg=#c397d8
-hi Special       guifg=#e6c547
+hi Special       guifg=#e6c547 guibg=#284b63
 hi Todo          guifg=#000000 guibg=#e6c547
 hi Delimiter	 guifg=#7aa6da
+hi Operator	 guifg=#ff8800
+
+
+augroup MyColors
+	autocmd!
+	autocmd ColorScheme * hi cppNamespace guifg=#ff8800 ctermfg=208
+augroup END
 
 "
 " Tree-sitter (Neovim only)

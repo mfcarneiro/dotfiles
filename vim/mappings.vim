@@ -5,6 +5,10 @@
 " " Map leader
 let mapleader = "\<Space>"
 
+" Source file
+:nnoremap <silent> <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
+
 " " Exit insert mode
 imap jk <Esc>
 
@@ -45,12 +49,12 @@ nmap <Leader>/ <Plug>AgRawSearch
 nmap <Leader>/ <Plug>AgRawVisualSelection
 nmap <Leader>* <Plug>AgRawWordUnderCursor
 
-" Mappings: subversive
-nmap s <plug>(SubversiveSubstitute)
-nmap ss <plug>(SubversiveSubstituteLine)
-nmap S <plug>(SubversiveSubstituteToEndOfLine)
+": subversive
+" nmap s <plug>(SubversiveSubstitute)
+" nmap ss <plug>(SubversiveSubstituteLine)
+" nmap S <plug>(SubversiveSubstituteToEndOfLine)
 
-" Mappings: go
+" " Mappings: go
 autocmd FileType go nmap <leader>b  <Plug>
 autocmd FileType go nmap <leader>r  <Plug>
 map <C-n> :cnext<CR>
@@ -59,3 +63,7 @@ nnoremap <leader>a :cclose<CR>
 
 " " Mappings: dispatch
 nnoremap <silent> <leader>xx :Dispatch<CR>
+
+" " Mappings: ale
+nnoremap <silent> <S-k> :ALEHover<CR>
+nnoremap <silent>  <Leader> gd :ALEGoToDefinition<CR>
