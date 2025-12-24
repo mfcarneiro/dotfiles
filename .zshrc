@@ -71,39 +71,39 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
-         adb
-         asdf
-         alias-finder
-         ag
-         archlinux
-         cp
-         copybuffer
-         copypath
-         wd
-         fzf
-         dash
-         npm
-         bun
-         fzf
-         tmux
-         kitty
-         systemd
-         gpg-agent
-         golang
-         gitignore
-         gradle
-         pre-commit
-         safe-paste
-         ssh-agent
-         taskwarrior
-         zsh-autosuggestions 
-         fast-syntax-highlighting 
-         zsh-autocomplete
-        )
+	asdf
+	archlinux
+	cp
+	copybuffer
+	copypath
+	wd
+	fzf
+	dash
+	npm
+	bun
+	fzf
+	tmux
+	kitty
+	mix
+	mix-fast
+	systemd
+	gpg-agent
+	gitignore
+	gradle
+	pre-commit
+	safe-paste
+	ssh-agent
+	taskwarrior
+	zsh-autosuggestions
+	fast-syntax-highlighting
+	zsh-autocomplete
+)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# **
+# ** USER CONFIG **
+# **
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -111,33 +111,24 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+	export EDITOR='vim'
+else
+	export EDITOR='nvim'
+fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+export ARCHFLAGS="-arch x86_64"
 
 # Java
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+export JAVA_HOME=/opt/android-studio/jbr/
 
 # Android
-export ANDROID_HOME=~/Android/Sdk
-export ANDROID_USER_HOME=~/.android/
-export ANDROID_AVD_HOME=~/.android/avd/
-export ANDROID_EMULATOR_HOME=~/Android/Sdk/emulator/
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+export ANDROID_USER_HOME=$HOME/.android
+export ANDROID_HOME=$HOME/Android/Sdk/
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export CAPACITOR_ANDROID_STUDIO_PATH=/opt/android-studio/bin/studio.sh
 
 # Cromite
 export CHROME_EXECUTABLE=/usr/bin/cromite
@@ -147,12 +138,19 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$HOME/.local/bin/:$PATH"
 
-# ZapStream background music
-alias mpvzap="mpv --no-video https://zap.stream/naddr1qqjrjdpkxvmk2ve4956njv3e956rgvny95urxdn994snqc3nvejngd3jvsmrvq3qeaz6dwsnvwkha5sn5puwwyxjgy26uusundrm684lg3vw4ma5c2jsxpqqqpmxwex2dgp"
+export BROWSER='Cromite'
+export TERM='kitty'
+
+# **
+# ** ALIAS **
+# **
 
 # Ytfzf
-alias ytv="ytfzf -t -s -l --async-thumbnails"
-alias yta="ytfzf -t -s -m -l --async-thumbnails"
+alias ytv="ytfzf -t -s -l -D --features=720"
+alias yta="ytfzf -t -s -m -l -D --features=144"
+
+# Yt-dlp
+alias ytda="yt-dlp -x --audio-format mp3"
 
 # Alias finder
 zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
@@ -160,21 +158,20 @@ zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
 zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
 zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
 
-alias npm=bun
+# alias npm=bun
 alias ion=ionic
 
 # Ionic completion
 if type compdef &>/dev/null; then
-  __ionic() {
-    compadd -- $(ionic completion -- "${words[@]}" 2>/dev/null)
-  }
+	__ionic() {
+		compadd -- $(ionic completion -- "${words[@]}" 2>/dev/null)
+	}
 
-  compdef __ionic ionic
+compdef __ionic ionic
 fi
 
-eval "$(starship init zsh)"
+# bun completions
+[ -s "/home/mfcarneiro/.bun/_bun" ] && source "/home/mfcarneiro/.bun/_bun"
+
 # Starship
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+eval "$(starship init zsh)"

@@ -1,0 +1,87 @@
+# ~/.gitconfig
+
+[advice]
+skippedCherryPicks = false
+
+[alias]
+blames = !tig blame
+branches = branch -av
+contributors = shortlog -ens --no-merges
+maint = maintenance run --task=gc --task=commit-graph --task=incremental-repack
+reflogs = !git reflog --pretty=raw | tig --pretty=raw
+remotes = remote get-url --all origin
+st = status --branch --porcelain
+submods = submodule update --init --recursive
+tags = tag -l
+upload = !/usr/local/libexec/gerrit_uploader.sh
+upstream = rev-parse --symbolic-full-name @{u}
+worktrees = worktree list
+
+[apply]
+whitespace = fix
+
+[branch]
+autosetuprebase = always
+sort = -committerdate
+
+[color]
+ui = auto
+
+[commit]
+verbose = true
+
+[core]
+commentString = "⁂"
+fsmonitor = true
+
+[diff]
+algorithm = histogram
+colorMoved = dimmed-zebra
+colorMovedWS = ignore-all-space
+noprefix = true
+renameLimit = 100000
+
+[feature]
+manyFiles = true
+
+[fetch]
+prune = true
+pruneTags = true
+
+[grep]
+lineNumber = true
+patternType = extended
+
+[help]
+autoCorrect = prompt
+
+[http]
+cookiefile = ~/.gitcookies
+
+[init]
+defaultBranch = master
+
+[log]
+date = iso8601
+
+[merge]
+conflictstyle = zdiff3
+
+[mergetool]
+prompt = false
+[pull]
+rebase = true
+
+[push]
+default = simple
+followTags = true
+
+[rebase]
+autoSquash = true
+autoStash = true
+missingCommitsCheck = warn
+updateRefs = true
+
+[tag]
+sort = version:refname
+
