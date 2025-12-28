@@ -23,7 +23,7 @@
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: Noto Sans Regular 10
+font pango: Noto Sans Regular 12
 
 # set the mod key to the winkey:
 set $mod Mod4
@@ -119,28 +119,28 @@ bindcode $mod+Shift+18    move container to workspace  $ws9
 bindcode $mod+Shift+19    move container to workspace  $ws10
 
 # move focused container to workspace with numpad keys
-bindcode $mod+Shift+Mod2+87 	move container to workspace  $ws1
-bindcode $mod+Shift+Mod2+88 	move container to workspace  $ws2
-bindcode $mod+Shift+Mod2+89 	move container to workspace  $ws3
-bindcode $mod+Shift+Mod2+83 	move container to workspace  $ws4
-bindcode $mod+Shift+Mod2+84 	move container to workspace  $ws5
-bindcode $mod+Shift+Mod2+85 	move container to workspace  $ws6
-bindcode $mod+Shift+Mod2+79 	move container to workspace  $ws7
-bindcode $mod+Shift+Mod2+80 	move container to workspace  $ws8
-bindcode $mod+Shift+Mod2+81 	move container to workspace  $ws9
-bindcode $mod+Shift+Mod2+90 	move container to workspace  $ws10
+bindcode $mod+Shift+Mod2+87	move container to workspace  $ws1
+bindcode $mod+Shift+Mod2+88	move container to workspace  $ws2
+bindcode $mod+Shift+Mod2+89	move container to workspace  $ws3
+bindcode $mod+Shift+Mod2+83	move container to workspace  $ws4
+bindcode $mod+Shift+Mod2+84	move container to workspace  $ws5
+bindcode $mod+Shift+Mod2+85	move container to workspace  $ws6
+bindcode $mod+Shift+Mod2+79	move container to workspace  $ws7
+bindcode $mod+Shift+Mod2+80	move container to workspace  $ws8
+bindcode $mod+Shift+Mod2+81	move container to workspace  $ws9
+bindcode $mod+Shift+Mod2+90	move container to workspace  $ws10
 
 # move focused container to workspace with numpad keys
-bindcode $mod+Shift+87 	 move container to workspace  $ws1
-bindcode $mod+Shift+88 	 move container to workspace  $ws2
-bindcode $mod+Shift+89 	 move container to workspace  $ws3
-bindcode $mod+Shift+83 	 move container to workspace  $ws4
-bindcode $mod+Shift+84 	 move container to workspace  $ws5
-bindcode $mod+Shift+85 	 move container to workspace  $ws6
-bindcode $mod+Shift+79 	 move container to workspace  $ws7
-bindcode $mod+Shift+80 	 move container to workspace  $ws8
-bindcode $mod+Shift+81 	 move container to workspace  $ws9
-bindcode $mod+Shift+90 	 move container to workspace  $ws10
+bindcode $mod+Shift+87	 move container to workspace  $ws1
+bindcode $mod+Shift+88	 move container to workspace  $ws2
+bindcode $mod+Shift+89	 move container to workspace  $ws3
+bindcode $mod+Shift+83	 move container to workspace  $ws4
+bindcode $mod+Shift+84	 move container to workspace  $ws5
+bindcode $mod+Shift+85	 move container to workspace  $ws6
+bindcode $mod+Shift+79	 move container to workspace  $ws7
+bindcode $mod+Shift+80	 move container to workspace  $ws8
+bindcode $mod+Shift+81	 move container to workspace  $ws9
+bindcode $mod+Shift+90	 move container to workspace  $ws10
 
 # resize window (you can also use the mouse for that):
 mode "resize" {
@@ -149,20 +149,20 @@ mode "resize" {
 # Pressing right will grow the window's width.
 # Pressing up will shrink the window's height.
 # Pressing down will grow the window's height.
-      bindsym h resize shrink width 5 px or 5 ppt
-      bindsym j resize grow height 5 px or 5 ppt
-      bindsym k resize shrink height 5 px or 5 ppt
-      bindsym l resize grow width 5 px or 5 ppt
+	bindsym h resize shrink width 5 px or 5 ppt
+		bindsym j resize grow height 5 px or 5 ppt
+		bindsym k resize shrink height 5 px or 5 ppt
+		bindsym l resize grow width 5 px or 5 ppt
 
 #same bindings, but for the arrow keys
-      bindsym Left resize shrink width 10 px or 10 ppt
-      bindsym Down resize grow height 10 px or 10 ppt
-      bindsym Up resize shrink height 10 px or 10 ppt
-      bindsym Right resize grow width 10 px or 10 ppt
+		bindsym Left resize shrink width 10 px or 10 ppt
+		bindsym Down resize grow height 10 px or 10 ppt
+		bindsym Up resize shrink height 10 px or 10 ppt
+		bindsym Right resize grow width 10 px or 10 ppt
 
 #back to normal: Enter or Escape
-      bindsym Return mode "default"
-      bindsym Escape mode "default"
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -280,8 +280,8 @@ bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightnes
 bindsym XF86AudioMicMute exec amixer sset Capture toggle
 
 # audio control
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause 
-bindsym XF86AudioPause exec --no-startup-id playerctl play-pause 
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
 # Above line will also work for pausing
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
@@ -359,10 +359,10 @@ for_window [class=TelegramDesktop] focus
 #
 # conupicom: https://wiki.archlinux.org/title/Picom
 # manpage: https://man.archlinux.org/man/picom.1.en
-# The default configuration is available in /etc/xdg/picom.conf 
+# The default configuration is available in /etc/xdg/picom.conf
 # For modifications, it can be copied to ~/.config/picom/picom.conf or ~/.config/picom.conf
 # install picom package (yay -S picom)
-# start using default config 
+# start using default config
 #exec_always --no-startup-id picom -b
 #
 # for custom config:
@@ -387,7 +387,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #texec --no-startup-id dex --autostart --environment i3
 
 # start welcome app
-#exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3 
+#exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3
 
 # num lock activated
 #exec --no-startup-id numlockx on
@@ -410,7 +410,7 @@ exec --no-startup-id sleep 2 && feh --bg-fill ~/Pictures/btc_eletronics.webp
 exec --no-startup-id xset s 480 dpms 600 600 600
 
 # disable power saving (for example if using xscreensaver)
-# 
+#
 #exec --no-startup-id xset -dpms
 
 # use xautolock to use autosuspend rules for mobile devices
@@ -426,7 +426,7 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 # dunst config used ~/.config/dunst/dunstrc
 # set alternative config if needed:
 #exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
-# may need to run dbus-launch explicitly: 
+# may need to run dbus-launch explicitly:
 #exec --no-startup-id dbus-launch /usr/bin/dunst
 exec --no-startup-id /usr/bin/dunst
 # alternative if you installed aside with XFCE4:
@@ -481,7 +481,7 @@ for_window [class="ghostty"] border pixel 2
 
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
-#for_window [class=".*"] resize set 640 480 #to change size of all floating windows 
+#for_window [class=".*"] resize set 640 480 #to change size of all floating windows
 
 # set position of floating window
 #for_window [class=".*"] move position center
@@ -506,11 +506,11 @@ set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
 
 # define colors for windows:
-#class		        	border		bground		text		indicator	child_border
-client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
-client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
+#class				border		bground		text		indicator	child_border
+client.focused			$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
+client.unfocused		$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
 client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
-client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+client.urgent			$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -519,32 +519,32 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 # Start i3bar to display a workspace bar
 # (plus the system information i3status finds out, if available)
 bar {
-    i3bar_command i3bar --transparency
+	i3bar_command i3bar --transparency
 		font pango: Noto Sans Regular 10
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	    	position top
-#	    	i3bar_command i3bar --transparency
+		position top
+#		i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
-		    #tray_output primary
-		    tray_padding 3
+#tray_output primary
+		tray_padding 3
 
 # When strip_workspace_numbers is set to yes,
 # any workspace that has a name of the form
 # “[n][:][NAME]” will display only the name.
-strip_workspace_numbers yes
+		strip_workspace_numbers yes
 ##strip_workspace_name no
 
-		    colors {
-		    separator          $purple
-		    background         #00000000
-		    statusline         $white
-#                     border 		        bg		txt		indicator
-		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
-	}
+		colors {
+			separator          $purple
+				background         #00000000
+				statusline         $white
+#                     border			bg		txt		indicator
+				focused_workspace	$mediumgrey		$grey		$darkgrey	$purple
+				active_workspace	$lightblue		$mediumgrey	$darkgrey	$purple
+				inactive_workspace	$darkgrey		$darkgrey	$grey		$purple
+				urgent_workspace	$urgentred		$urgentred	$white		$purple
+		}
 }
 
 # you can add different bars for multidisplay setups on each display:
@@ -569,7 +569,7 @@ strip_workspace_numbers yes
 #	colors {
 #		separator          $purple
 #		background         $darkbluetrans
-#        	statusline         $white
+#		statusline         $white
 #					border		bg		txt		indicator
 #		focused_workspace	$lighterblue	$lighterblue	$darkblue	$purple
 #		active_workspace	$lightdblue	$lightdblue	$darkblue	$purple
@@ -585,15 +585,15 @@ strip_workspace_numbers yes
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
-    -config ~/.config/rofi/rofidmenu.rasi
+		-config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F9 exec --no-startup-id rofi -modi drun -show drun \
 #		-config ~/.config/rofi/rofidmenu.rasi
 
 ## rofi bindings for window menu ($mod+t /F10 optional disabled)
 
-bindsym $mod+t exec --no-startup-id rofi -show run \
-		 -config ~/.config/rofi/rofidmenu.rasi
+		bindsym $mod+t exec --no-startup-id rofi -show run \
+			-config ~/.config/rofi/rofidmenu.rasi
 
 # bindsym F10 exec --no-startup-id rofi -show window \
 #     -config ~/.config/rofi/rofidmenu.rasi
