@@ -9,11 +9,14 @@ let mapleader = "\<Space>"
 :nnoremap <silent> <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
 
+" Compiler
+nnoremap <leader>cl :FloatermNew --autoclose=0 clang++ % -o %< && ./%<<CR>
+
 " " Exit insert mode
 imap jk <Esc>
 
 " " Vertical split
-nmap <silent> <Leader>v :vsplit<CR>
+smap <silent> <Leader>v :vsplit<CR>
 
 " " Save
 nnoremap <C-s> :w<CR>
@@ -31,7 +34,7 @@ nnoremap <silent> <Leader>t :tabnew<CR>
 vnoremap <Leader>s :sort<CR>
 
 " " TExplorer
-nnoremap <silent><Leader>e :Texplore<CR>
+nnoremap <silent><Leader>e :Lexplore<CR>
 
 " " Mappings: fzf
 nmap <Leader>f :GFiles<CR>
@@ -41,7 +44,7 @@ nmap <Leader>l :BLines<CR>
 nmap <Leader>h :Helptags!<CR>
 
 " " Mappings: lazygit
-nnoremap <silent> <leader>gg :terminal lazygit<CR>
+nnoremap <silent> <leader>gg :FloatermNew --width=0.9 --height=0.9 lazygit<CR>
 
 " " Search project with ag
 " " Mappings: agriculture
@@ -67,3 +70,10 @@ nnoremap <silent> <leader>xx :Dispatch<CR>
 " " Mappings: ale
 nnoremap <silent> <S-k> :ALEHover<CR>
 nnoremap <silent>  <Leader> gd :ALEGoToDefinition<CR>
+
+" "Mappings: flutter
+nnoremap <leader>fa :FlutterRun<CR>
+nnoremap <leader>fq :FlutterQuit<CR>
+nnoremap <leader>fr :FlutterHotReload<CR>
+nnoremap <leader>fR :FlutterHotRestart<CR>
+nnoremap <leader>fD :FlutterVisualDebug<CR>
