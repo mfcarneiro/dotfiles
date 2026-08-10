@@ -1,0 +1,13 @@
+{
+  "policies": {
+    "ExtensionSettings": {
+      "*": {
+        "installation_mode": "allowed"
+      },
+      "leechblockng@proginosko.com": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/leechblock-ng/latest.xpi"
+      }
+    }
+  }
+}
