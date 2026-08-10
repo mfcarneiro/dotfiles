@@ -1,6 +1,6 @@
 " Encoding
 set encoding=utf-8
-set fileencodings=utf-8,latin1
+set fileencodings=utf-8
 
 " Interface
 set number
@@ -52,10 +52,13 @@ set scrolloff=5
 set foldmethod=indent
 set foldlevel=99
 set guicursor+=n-v-c:blinkon0
+set showbreak=→\
+set signcolumn=yes
 
 " Clipboard & mouse
 set clipboard=unnamedplus
 set mouse=a
+
 
 " Completion
 set completeopt=menu,menuone,noselect
@@ -64,6 +67,8 @@ set shortmess+=c
 " Wildmenu & file navigation
 set wildmenu
 set wildmode=list:longest
+
+" Display & wrapping
 
 " Colors & UI
 syntax on
@@ -75,7 +80,7 @@ endif
 set background=dark
 
 call plug#begin()
-source ~/dotfiles/vim/plugins.vim
+source ~/.vim/plugins.vim
 call plug#end()
 
 call sourcery#init()

@@ -86,6 +86,8 @@ Plug 'tpope/vim-dadbod'
 
 Plug 'easymotion/vim-easymotion'
 
+Plug 'rust-lang/rust.vim'
+
 " ------------------------------------------------------------------------------
 " # Configs
 " ------------------------------------------------------------------------------
@@ -139,12 +141,11 @@ let g:lightline.active = {
 " Config: lsc
 let g:lsc_auto_map = v:true
 let g:lsc_server_commands = {
-      \ "elixir": {
-      \"command": "elixir-ls",
-      \"log_level": "-1"
-      \},
+      \ "elixir":"elixir-ls",
+      \ "heex":"elixir-ls",
       \ "c": "clangd",
-      \ "cpp": "clangd"
+      \ "cpp": "clangd",
+      \ "rust": "rust-analyzer",
       \}
 " \  "go": {
 " \    "command": "gopls serve",
@@ -152,3 +153,6 @@ let g:lsc_server_commands = {
 " \    "suppress_stderr": v:true,
 " \  },
 " \}
+
+" Config: rust
+let g:rustfmt_autosave = 1

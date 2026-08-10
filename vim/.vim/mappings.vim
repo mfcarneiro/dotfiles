@@ -10,7 +10,8 @@ let mapleader = "\<Space>"
 :nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
 
 " Compiler
-nnoremap <leader>cl :FloatermNew --autoclose=0 clang++ % -o %< && ./%<<CR>
+" nnoremap <leader>cl :FloatermNew --autoclose=0 clang++ % -o %< && ./%<<CR>
+nnoremap <leader>cl :FloatermNew --autoclose=0 cargo run<<CR>
 
 " " Exit insert mode
 imap jk <Esc>
