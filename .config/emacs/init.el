@@ -4,6 +4,13 @@
 
 (setq load-prefer-newer t)
 
+;; Background opacity
+(set-frame-parameter nil 'alpha-background 80) ; For current frame
+(add-to-list 'default-frame-alist '(alpha-background . 80)) ; For all new frames
+
+;; Noctalia theme loader
+(add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
+
 ;; make frame transparency overridable
 (defvar efs/frame-transparency '(60 . 60))
 
@@ -47,7 +54,7 @@
 
 ;; relative-numbers
 (setq-default
-  display-line-numbers-type 'relative)
+ display-line-numbers-type 'relative)
 (column-number-mode)
 (global-display-line-numbers-mode t)
 
@@ -121,60 +128,16 @@
   :config
   (flycheck-pos-tip-mode))
 
-;; rustic
-(use-package rustic
-  :ensure t
-  :bind (:map rustic-mode-map
-              ("M-j" . lsp-ui-imenu)
-              ("s-k" . lsp-ui-doc-toggle)
-              ("M-?" . lsp-find-references)
-              ("C-c C-c l" . flycheck-list-errors)
-              ("C-c C-c a" . lsp-execute-code-action)
-              ("C-c C-c r" . lsp-rename)
-              ("C-c C-c q" . lsp-workspace-restart)
-              ("C-c C-c Q" . lsp-workspace-shutdown)
-              ("C-c C-c s" . lsp-rust-analyzer-status))
-  :config
-                                        ;(setq rustic-format-on-save t)
-  :custom
-  (rustic-cargo-use-last-stored-arguments t)
-  :ensure
-  :config
-  ;; uncomment for less flashiness
-                                        ;(setq lsp-eldoc-hook t)
-  (setq lsp-enable-symbol-highlighting nil)
-  (setq lsp-signature-auto-activate nil)
-  ;; comment to disable rustfmt on save
-                                        ;(setq rustic-format-on-save t)
-  (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
-
-(defun rk/rustic-mode-hook ()
-  ;; So that run C-c C-c C-r works without having to confirm, but don't try to
-  ;; save rust buffers that are not file visiting. Once
-  ;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
-  ;; no longer be necessary.
-  (when buffer-file-name
-    (setq-local buffer-save-without-query t))
-  (add-hook 'before-save-hook 'lsp-format-buffer nil t))
-
-;; lsp-mode w/rust-analyzer
 (use-package lsp-mode
   :ensure
   :commands lsp
   :custom
   ;; what to use when checking on-save. "check" is default
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
-                                        ;(lsp-eldoc-render-all t)
+  ;;(lsp-eldoc-render-all t)
   (lsp-idle-delay 0.6)
-                                        ; enable / disable the hints as you prefer:
+  ; enable / disable the hints as you prefer:
   (lsp-inlay-hint-enable t)
   ;; optional configurations.
-  (lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
-  (lsp-rust-analyzer-display-chaining-hints nil)
-  (lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
-  (lsp-rust-analyzer-display-closure-return-type-hints t)
-  (lsp-rust-analyzer-display-parameter-hints nil)
-  (lsp-rust-analyzer-display-reborrow-hints nil)
   :config
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
@@ -213,7 +176,7 @@
   :bind ("M-/" . company-complete-common-or-cycle) ;; overwritten by flyspell
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (setq company-show-numbers            t
+  (setq company-show-numbers        t
     company-minimum-prefix-length   1
     company-idle-delay              0.5
     company-backends
@@ -251,6 +214,7 @@
   (define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
   (define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
   )
+
 ;; Optional: Ito only with c/cpp
 (semantic-mode 1)
 (define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)

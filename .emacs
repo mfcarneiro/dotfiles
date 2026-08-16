@@ -1,5 +1,7 @@
 (load "~/.config/emacs/init.el")
 
+(load-theme 'noctalia t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -7,7 +9,7 @@
  ;; If there is more than one, they won't work right.
  '(C-default-style '((c-mode . "") (awk-mode . "awk") (other . "gnu")))
  '(compilation-always-kill t)
- '(custom-enabled-themes '(wombat))
+ ;;'(custom-enabled-themes '(wombat))
  '(ede-project-directories t)
  '(inhibit-default-init t)
  '(inhibit-startup-buffer-menu t)
